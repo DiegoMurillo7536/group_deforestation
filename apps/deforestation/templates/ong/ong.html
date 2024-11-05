@@ -1,0 +1,96 @@
+{% extends '../base.html' %}
+{% block title %} ONG {% endblock %}
+{% block body %}
+    <h1>Ongs ambientalistas</h1>
+    <div class="row">
+        <div class="col-md-5">
+            <h2>Crea una nueva ONG</h2>
+            <div class='card'>
+                <div class='card-body'>
+                    <form action="/ongs/add_ong/" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register_number">Número de registro</label>
+                            <input type="text" class="form-control" id="register_number" name="register_number" placeholder="Número de registro" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">País</label>
+                            <input type="text" class="form-control" id="country" name="country" placeholder="País" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mission">Misión</label>
+                            <input type="text" class="form-control" id="mission" name="mission" placeholder="Misión" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="activities_type">Tipo de actividades</label>
+                            <input type="text" class="form-control" id="activities_type" name="activities_type" placeholder="Tipo de actividades" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="focus_area">Área de enfoque</label>
+                            <input type="text" class="form-control" id="focus_area" name="focus_area" placeholder="Área de enfoque" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="annual_budget">Presupuesto anual</label>
+                            <input type="number" class="form-control" id="annual_budget" name="annual_budget" placeholder="Presupuesto anual" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="foundation_date">Fecha de fundación</label>
+                            <input type="date" class="form-control" id="foundation_date" name="foundation_date" placeholder="Fecha de fundación" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="employees_quantity">Cantidad de empleados</label>
+                            <input type="number" class="form-control" id="employees_quantity" name="employees_quantity" placeholder="Cantidad de empleados" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="problematic">Problemático</label>
+                            <input type="text" class="form-control" id="problematic" name="problematic" placeholder="Problemático" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="current_projects">Proyectos actuales</label>
+                            <input type="text" class="form-control" id="current_projects" name="current_projects" placeholder="Proyectos actuales" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="obtained_results">Resultados obtenidos</label>
+                            <input type="text" class="form-control" id="obtained_results" name="obtained_results" placeholder="Resultados obtenidos" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Crear</button>
+                    </form>
+                </div>
+            </div> <!-- Cierre del div card -->
+        </div> <!-- Cierre del div col-md-5 -->
+        
+        <div class="col-md-6">
+            <h2>ONG existentes</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>País</th>
+                            <th>Misión</th>
+                            <th>Fecha de fundación</th>
+                            <th colspan="2">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ong in ongs %}
+                            <tr>
+                                <td>{{ ong.name }}</td>
+                                <td>{{ ong.country }}</td>
+                                <td>{{ ong.mission }}</td>
+                                <td>{{ ong.foundation_date }}</td>
+                                <td><a href="/ongs/edit_ong/{{ ong.id_ong }}" class="btn btn-primary">Editar</a></td>
+                                <td><a href="/ongs/delete_ong/{{ ong.id_ong }}" class="btn btn-danger">Eliminar</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div> 
+        </div> 
+    </div> 
+{% endblock %}

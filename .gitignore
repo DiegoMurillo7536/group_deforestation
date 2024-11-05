@@ -1,0 +1,12 @@
+# Ignore cache
+deforestation_crud_group/__pycache__
+apps/deforestation/__pycache__
+apps/deforestation/migrations/__pycache__
+apps/deforestation/templates/__pycache__
+apps/deforestation/views/__pycache__
+apps/deforestation/models/__pycache__
+# Migrations
+apps/deforestation/migrations/*
+!apps/deforestation/migrations/__init__.py
+
+
