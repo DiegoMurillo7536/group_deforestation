@@ -1,5 +1,4 @@
 from django.db import models
-# This is a test
 # Create your models here.
 class AmbientalistOng(models.Model):
     id_ong = models.AutoField(primary_key=True)
