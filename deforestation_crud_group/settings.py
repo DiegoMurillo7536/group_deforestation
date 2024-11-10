@@ -79,7 +79,7 @@ DATABASES = {
         "ENGINE": "mysql.connector.django",
         "NAME": "deforestacion_destruccion_habitats",
         "USER": "root",
-        "PASSWORD": "Y15H28M52#",
+        "PASSWORD": "12345",
         "HOST": "localhost",
         "PORT": "3306",
     }
