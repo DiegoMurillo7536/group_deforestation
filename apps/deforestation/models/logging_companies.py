@@ -1,15 +1,15 @@
 from django.db import models
 
 class LoggingCompanies(models.Model):
-    corporation_id = models.AutoField(primary_key=True)
-    name_cop = models.CharField(max_length=100)
-    headquarters_cop = models.CharField(max_length=100)
-    locations_tala = models.CharField(max_length=100)
-    reforested_areas = models.CharField(max_length=100)
-    annual_wood_volume = models.FloatField(null=True, blank=True)  
-    wood_type = models.CharField(max_length=100, null=True, blank=True)
-    environmental_alliances = models.CharField(max_length=100, null=True, blank=True)
-    annual_income = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True) 
+    corporation_id = models.AutoField(primary_key=True, verbose_name="ID Corporaciones")
+    name_cop = models.CharField(max_length=100, verbose_name="Nombre Corporaciones")
+    headquarters_cop = models.CharField(max_length=100, verbose_name="Sede Corporaciones")
+    locations_tala = models.CharField(max_length=100, verbose_name="Lugares de tala")
+    reforested_areas = models.CharField(max_length=100, verbose_name="Areas reforestadas")
+    annual_wood_volume = models.FloatField(null=True, blank=True, verbose_name="Volumen anual de madera")  
+    wood_type = models.CharField(max_length=100, null=True, blank=True, verbose_name="Tipo de madera")
+    environmental_alliances = models.CharField(max_length=100, null=True, blank=True, verbose_name="Alianzas ambientales")
+    annual_income = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True, verbose_name="Ingresos anuales") 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -17,7 +17,7 @@ class LoggingCompanies(models.Model):
         'Governments',
         on_delete=models.CASCADE,
         db_column='id_government',
-        verbose_name='Government',
+        verbose_name='Gobierno',
         related_name='LoggingCompanies'
     )
 

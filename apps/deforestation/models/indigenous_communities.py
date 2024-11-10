@@ -1,14 +1,14 @@
 from django.db import models
 
 class IndigenousCommunities(models.Model):
-    community_id = models.AutoField(primary_key=True)
-    community_name = models.CharField(max_length=100)
-    population = models.IntegerField()
-    region = models.CharField(max_length=100)
-    activities_preservation = models.CharField(max_length=100)
-    deforestation_impact = models.CharField(max_length=100,choices=[('Low','low'), ('Medium','medium'), ('High','high')])
-    territorial_rights = models.BooleanField()
-    support_ong = models.BooleanField()
+    community_id = models.AutoField(primary_key=True, verbose_name="Codigo Comunidad")
+    community_name = models.CharField(max_length=100, verbose_name="Nombre Comunidad")
+    population = models.IntegerField(verbose_name="Poblacion")
+    region = models.CharField(max_length=100, verbose_name="Region")
+    activities_preservation = models.CharField(max_length=100, verbose_name="Actividades de preservacion")
+    deforestation_impact = models.CharField(max_length=100,choices=[('Low','low'), ('Medium','medium'), ('High','high')], verbose_name="Impacto de la deforestación")
+    territorial_rights = models.BooleanField(verbose_name="Derechos territoriales")
+    support_ong = models.BooleanField(verbose_name="Apoyo ONG")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
@@ -17,7 +17,7 @@ class IndigenousCommunities(models.Model):
         'Governments',
         on_delete=models.CASCADE,
         db_column='id_government',
-        verbose_name='Government',
+        verbose_name='Gobiernos',
         related_name='IndigenousCommunities'
     )
 
