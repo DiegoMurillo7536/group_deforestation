@@ -1,16 +1,16 @@
 from django.db import models
 
 class Companies(models.Model):
-    id_company = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=100)
-    company_type = models.CharField(max_length=100)
-    location = models.CharField(max_length=100)
-    foundation_date = models.DateField()
-    employees_quantity = models.IntegerField()
-    mineral_type = models.CharField(max_length=100)
-    cattle_type = models.CharField(max_length=100)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    id_company = models.AutoField(primary_key=True, verbose_name="ID de la empresa")
+    name = models.CharField(max_length=100, verbose_name="Nombre de la empresa")
+    company_type = models.CharField(max_length=100, verbose_name="Tipo de la empresa")
+    location = models.CharField(max_length=100, verbose_name="Ubicación de la empresa")
+    foundation_date = models.DateField(verbose_name="Fecha de fundación de la empresa")
+    employees_quantity = models.IntegerField(verbose_name="Cantidad de empleados de la empresa")
+    mineral_type = models.CharField(max_length=100, verbose_name="Tipo de mineral de la empresa")
+    cattle_type = models.CharField(max_length=100, verbose_name="Tipo de ganado de la empresa")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación de la empresa")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Fecha de actualización de la empresa")
     
     # Goverment foreign key
     government = models.ForeignKey(
