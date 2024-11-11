@@ -4,7 +4,6 @@ class Farmer(models.Model):
     farmer_id = models.AutoField(primary_key=True, verbose_name='ID del agricultor')
     document = models.CharField(max_length=20,verbose_name='Documento de identidad')
     name = models.CharField(max_length=100, verbose_name='Nombre del agricultor')
-    country = models.CharField(max_length=50, verbose_name='País del agricultor')
     land_type = models.CharField(max_length=50, verbose_name='Tipo de tierra del agricultor')
     land_extension = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Extensión de tierra del agricultor')
     land_affectations = models.TextField(null=True, blank=True, verbose_name='Afectaciones del tierra del agricultor')
